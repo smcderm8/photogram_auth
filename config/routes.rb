@@ -56,13 +56,17 @@ Rails.application.routes.draw do
   get "/delete_photo/:id", :controller => "photos", :action => "destroy"
   #------------------------------
   
+  devise_for :users
+  
   # Routes for the User resource:
   # READ
   get "/users", :controller => "users", :action => "index"
   get "/users/:id", :controller => "users", :action => "show"
   
+  get "my_likes", :controller => "photos", :action => "favorites"
+  
 
-  devise_for :users
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   mount WebGit::Engine, at: "/rails/git"
 end
