@@ -26,7 +26,9 @@
           <img src = "<%= photo.image %>" class="img-responsive">
         </a>
         
-        
+        <p>
+         <%= photo.caption %>
+        </p>
         
         <% if photo.fans.exists?(current_user.id) %>
           <% @like = photo.likes.find_by(:user_id=>current_user.id, :photo_id=>photo.id) %>
