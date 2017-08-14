@@ -2,7 +2,7 @@
     <div class="col-md-8 col-md-offset-2">
         <div class="jumbotron">
           <h3>
-            <%= current_user.username %>'s Liked Photos
+            <%= current_user.username %>'s liked photos
           </h3>
         </div>
     </div>
@@ -25,6 +25,10 @@
         <a href="/photos/<%= photo.id %>">
           <img src = "<%= photo.image %>" class="img-responsive">
         </a>
+        
+        <p>
+         <%= photo.caption %>
+        </p>
         
         <% if photo.fans.exists?(current_user.id) %>
           <% @like = photo.likes.find_by(:user_id=>current_user.id, :photo_id=>photo.id) %>
